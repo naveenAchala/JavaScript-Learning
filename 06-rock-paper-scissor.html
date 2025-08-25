@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booleans</title>
+    <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/normalize.css" />
+  </head>
+  <body>
+    <h1>ROCK PAPER SCISSORS</h1>
+
+    <p>Rock beats Scissors</p>
+    <p>Paper beats Rock</p>
+    <p>Scissors beats Paper</p>
+
+    <button class="btn btn--primary" id="rock" onclick="game('rock')">
+      Rock
+    </button>
+    <button class="btn btn--secondary" id="paper" onclick="game('paper')">
+      Paper
+    </button>
+    <button class="btn btn--accent" id="scissors" onclick="game('scissors')">
+      Scissors
+    </button>
+
+    <script>
+      function game(choice) {
+        const computerChoice = Math.floor(Math.random() * 3);
+        var result;
+        console.log(computerChoice);
+        if (computerChoice === 0) {
+          if (choice === "rock") {
+            result = "It's a tie!";
+          } else if (choice === "paper") {
+            result = "You win!";
+          } else {
+            result = "You lose!";
+          }
+        } else if (computerChoice === 1) {
+          if (choice === "rock") {
+            result = "You lose!";
+          } else if (choice === "paper") {
+            result = "It's a tie!";
+          } else {
+            result = "You win!";
+          }
+        } else {
+          if (choice === "rock") {
+            result = "You win!";
+          } else if (choice === "paper") {
+            result = "You lose!";
+          } else {
+            result = "It's a tie!";
+          }
+        }
+        alert(
+          "Computer Chose: " +
+            (computerChoice === 0
+              ? "Rock"
+              : computerChoice === 1
+              ? "Paper"
+              : "Scissors") +
+            "\n" +
+            result
+        );
+      }
+    </script>
+  </body>
+</html>
