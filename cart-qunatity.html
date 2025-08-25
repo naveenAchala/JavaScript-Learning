@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>variables</title>
+    <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/normalize.css" />
+  </head>
+  <body>
+    <div>
+      Cart Quantity:<br />
+      <button class="btn btn--primary" onclick="showQuantity()">
+        Show quantity
+      </button>
+      <button class="btn btn--secondary" onclick="addToCart(1)">
+        Add to cart
+      </button>
+      <button class="btn btn--secondary" onclick="addToCart(2)">+2</button>
+      <button class="btn btn--secondary" onclick="addToCart(3)">+3</button>
+      <button class="btn btn--primary" onclick="resetCart()">Reset cart</button>
+    </div>
+    <script>
+      let quantity = 0;
+
+      function showQuantity() {
+        console.log("cart quantity: " + quantity);
+      }
+
+      function addToCart(amount) {
+        quantity += amount;
+        console.log("cart quantity: " + quantity);
+      }
+
+      function resetCart() {
+        quantity = 0;
+        console.log("cart was reset " + quantity);
+      }
+    </script>
+  </body>
+</html>
