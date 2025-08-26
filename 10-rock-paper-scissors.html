@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ROCK PAPER SCISSORS</title>
+    <link rel="stylesheet" href="styles/game.css" />
+    <link rel="stylesheet" href="styles/normalize.css" />
+  </head>
+  <body>
+    <section class="block container">
+      <h1 class="block__header block__heading">ROCK PAPER SCISSORS</h1>
+      <p>Rock beats Scissors, Paper beats Rock, Scissors beats Paper</p>
+      <div class="grid">
+        <button class="emoji--box" id="rock" onclick="game('rock')">
+          <img class="emoji" src="images/rock.png" alt="Rock" />
+        </button>
+        <button class="emoji--box" id="paper" onclick="game('paper')">
+          <img class="emoji" src="images/paper.png" alt="Paper" />
+        </button>
+        <button class="emoji--box" id="scissors" onclick="game('scissors')">
+          <img class="emoji" src="images/scissors.png" alt="Scissors" />
+        </button>
+      </div>
+      <!-- display result -->
+      <div class="result">
+        <h2 class="js-result"></h2>
+        <p class="js-moves"></p>
+      </div>
+
+      <!-- display score -->
+      <p class="js-score score"></p>
+      <!-- reset score -->
+      <button class="btn btn--primary btn--center" onclick="resetScore()">
+        Reset Score
+      </button>
+    </section>
+
+    <script src="scripts/10-rock-paper-scissors.js"></script>
+  </body>
+</html>

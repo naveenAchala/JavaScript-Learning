@@ -9,37 +9,36 @@
   </head>
   <body>
     <!-- YouTube Subscribe Button -->
-    <p>YouTube Subscribe</p>
-    <button class="btn btn--accent js-subscribe" onclick="Subscribe()">
-      Subscribe
-    </button>
-    <br />
-    <br />
-    <br />
+    <div class="block container">
+      <p>YouTube Subscribe</p>
+      <button class="btn btn--accent js-subscribe" onclick="Subscribe()">
+        Subscribe
+      </button>
+    </div>
     <!--Rock Paper Scissors Game-->
-    <p>Rock Paper Scissors</p>
-    <a href="09-rock-paper-scissor.html" class="link-arrow">Click Here</a>
-    <br />
-    <br />
+    <div class="block container">
+      <p>Rock Paper Scissors</p>
+      <a href="10-rock-paper-scissors.html" class="link-arrow">Click Here</a>
+    </div>
 
     <!--Amazon Shipping Calculator-->
-    <p>Amazon Shipping Calculator</p>
-    <p>Orders Under 500 = +49 Shipping</p>
-    <p>Orders Over 500 = Free Shipping</p>
-    <input
-      type="number"
-      placeholder="Cost of Order"
-      class="js-orderCost"
-      onkeydown="handleCostKeyDown(event)"
-    />
-    <button class="btn btn--secondary" onclick="calculateShipping()">
-      Calculate
-    </button>
-    <p class="js-shippingResult"></p>
-
-    <!--CSS Version of this Page-->
-    <p>CSS Version of this Page</p>
-    <a href="10-dom-projects.html" class="link-arrow">click here</a>
+    <div class="block container">
+      <p>Amazon Shipping Calculator</p>
+      <p>Orders Under 500 = +49 Shipping</p>
+      <p>Orders Over 500 = Free Shipping</p>
+      <div class="input-group">
+        <input
+          type="number"
+          placeholder="Cost of Order"
+          class="input js-orderCost"
+          onkeydown="handleCostKeyDown(event)"
+        />
+        <button class="btn btn--secondary" onclick="calculateShipping()">
+          Calculate
+        </button>
+      </div>
+      <p class="js-shippingResult"></p>
+    </div>
 
     <!--JavaScript-->
     <script>
@@ -49,8 +48,12 @@
 
         if (subscribeButton.innerHTML === "Subscribe") {
           subscribeButton.innerHTML = "Subscribed!";
+          subscribeButton.classList.add("btn--activated");
+          subscribeButton.classList.remove("btn--accent");
         } else {
           subscribeButton.innerHTML = "Subscribe";
+          subscribeButton.classList.remove("btn--activated");
+          subscribeButton.classList.add("btn--accent");
         }
       }
 

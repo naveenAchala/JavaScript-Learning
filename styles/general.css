@@ -278,6 +278,11 @@ a {
   }
 }
 
+.btn--activated {
+  background: var(--color-border);
+  color: black;
+}
+
 /* Inputs */
 .input {
   border: 1px solid var(--color-border);
