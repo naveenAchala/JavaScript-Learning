@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+    <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/normalize.css" />
+  </head>
+  <body>
+    <button class="btn btn--primary">Hello</button>
+    <button class="btn btn--secondary">Bye</button>
+    <script>
+      // DOM - Document Object Model
+      //   document.body.innerHTML = "Hello Nk";
+      //   document.title = "New Title";
+
+      /*
+      console.log(document.body.innerHTML);
+      console.log(document.body);
+      console.log(document.title);
+      console.log(typeof document.body);
+
+      document.body.innerHTML = "<button class='btn btn--secondary'>Bye</button>";
+      */
+
+      // QuerySelector
+      const button = document.querySelector("button");
+      console.log(button);
+      button.addEventListener("click", () => {
+        document.body.innerHTML =
+          "<button class='btn btn--secondary'>Bye</button>";
+      });
+
+      //Others
+      console.log(String(25));
+      console.log("25" - 5);
+      console.log("25" + 5);
+      console.log(Number("200"));
+    </script>
+  </body>
+</html>

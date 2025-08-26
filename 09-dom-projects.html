@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM-Projects</title>
+    <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/normalize.css" />
+  </head>
+  <body>
+    <!-- YouTube Subscribe Button -->
+    <p>YouTube Subscribe</p>
+    <button class="btn btn--accent js-subscribe" onclick="Subscribe()">
+      Subscribe
+    </button>
+    <br />
+    <br />
+    <br />
+    <!--Rock Paper Scissors Game-->
+    <p>Rock Paper Scissors</p>
+    <a href="09-rock-paper-scissor.html" class="link-arrow">Click Here</a>
+    <br />
+    <br />
+
+    <!--Amazon Shipping Calculator-->
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders Under 500 = +49 Shipping</p>
+    <p>Orders Over 500 = Free Shipping</p>
+    <input
+      type="number"
+      placeholder="Cost of Order"
+      class="js-orderCost"
+      onkeydown="handleCostKeyDown(event)"
+    />
+    <button class="btn btn--secondary" onclick="calculateShipping()">
+      Calculate
+    </button>
+    <p class="js-shippingResult"></p>
+
+    <!--CSS Version of this Page-->
+    <p>CSS Version of this Page</p>
+    <a href="#" class="link-arrow">click here</a>
+
+    <!--JavaScript-->
+    <script>
+      // YouTube Subscribe Button
+      function Subscribe() {
+        const subscribeButton = document.querySelector(".js-subscribe");
+
+        if (subscribeButton.innerHTML === "Subscribe") {
+          subscribeButton.innerHTML = "Subscribed!";
+        } else {
+          subscribeButton.innerHTML = "Subscribe";
+        }
+      }
+
+      //Amazon Shipping Calculator
+      function handleCostKeyDown(event) {
+        if (event.key === "Enter") {
+          calculateShipping();
+        }
+      }
+      function calculateShipping() {
+        const orderCost = document.querySelector(".js-orderCost").value;
+
+        if (orderCost < 500) {
+          document.querySelector(".js-shippingResult").innerHTML =
+            "Shipping Cost: " + (49 + parseFloat(orderCost));
+        } else {
+          document.querySelector(".js-shippingResult").innerHTML =
+            "Shipping Cost: " + orderCost;
+        }
+      }
+    </script>
+  </body>
+</html>
