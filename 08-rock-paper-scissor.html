@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ROCK PAPER SCISSORS</title>
+    <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/normalize.css" />
+  </head>
+  <body>
+    <h1>ROCK PAPER SCISSORS</h1>
+
+    <p>Rock beats Scissors</p>
+    <p>Paper beats Rock</p>
+    <p>Scissors beats Paper</p>
+
+    <button class="btn btn--primary" id="rock" onclick="game('rock')">
+      Rock
+    </button>
+    <button class="btn btn--secondary" id="paper" onclick="game('paper')">
+      Paper
+    </button>
+    <button class="btn btn--accent" id="scissors" onclick="game('scissors')">
+      Scissors
+    </button>
+
+    <!-- reset score -->
+    <button class="btn btn--primary" onclick="resetScore()">Reset Score</button>
+
+    <script>
+      //Local Storage
+      const score = JSON.parse(localStorage.getItem("score")) || {
+        wins: 0,
+        losses: 0,
+        ties: 0,
+      };
+
+      function game(choice) {
+        // 0 = rock, 1 = paper, 2 = scissors
+        const computerChoice = Math.floor(Math.random() * 3);
+        var result;
+        console.log(computerChoice);
+
+        // Rock
+        if (computerChoice === 0) {
+          if (choice === "rock") {
+            result = "It's a tie!";
+          } else if (choice === "paper") {
+            result = "You win!";
+          } else {
+            result = "You lose!";
+          }
+        }
+        // Paper
+        else if (computerChoice === 1) {
+          if (choice === "rock") {
+            result = "You lose!";
+          } else if (choice === "paper") {
+            result = "It's a tie!";
+          } else {
+            result = "You win!";
+          }
+        }
+        // Scissors
+        else {
+          if (choice === "rock") {
+            result = "You win!";
+          } else if (choice === "paper") {
+            result = "You lose!";
+          } else {
+            result = "It's a tie!";
+          }
+        }
+
+        //score tracking
+        if (result == "It's a tie!") {
+          score.ties++;
+        } else if (result == "You win!") {
+          score.wins++;
+        } else {
+          score.losses++;
+        }
+
+        localStorage.setItem("score", JSON.stringify(score));
+
+        //display results
+        alert(
+          "Computer Chose: " +
+            (computerChoice === 0
+              ? "Rock"
+              : computerChoice === 1
+              ? "Paper"
+              : "Scissors") +
+            "\n" +
+            "you chose: " +
+            choice +
+            "\n" +
+            result +
+            "\nscore: wins: " +
+            score.wins +
+            ", losses: " +
+            score.losses +
+            ", ties: " +
+            score.ties
+        );
+      }
+
+      // Reset score
+      function resetScore() {
+        score.wins = 0;
+        score.losses = 0;
+        score.ties = 0;
+        alert("Score has been reset!");
+        localStorage.setItem("score", JSON.stringify(score));
+      }
+    </script>
+  </body>
+</html>

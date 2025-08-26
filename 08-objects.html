@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objects</title>
+    <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/normalize.css" />
+  </head>
+  <body>
+    <script>
+      //Creating an object named product
+      const product = {
+        name: "Iqoo Z7s",
+        price: 17999,
+      };
+
+      // Accessing object properties
+      console.log("Product Details:");
+      console.log(product);
+      console.log(product.name);
+      console.log(product.price);
+
+      // Updating object properties
+      console.log("Updated Product Details:");
+      product.price = 16999;
+      console.log(product);
+
+      // Adding a new property
+      console.log("Adding a New Property:");
+      product.color = "black";
+      console.log(product);
+
+      // Deleting a property
+      console.log("Deleting a Property:");
+      delete product.color;
+      console.log(product);
+
+      //typeof
+      console.log("Typeof Checks:");
+      console.log(typeof product);
+      console.log(typeof product.name);
+      console.log(typeof product.price);
+
+      //PRODUCT2
+      console.log("Creating Another Object:");
+      const product2 = {
+        name: "Samsung Galaxy S21",
+        price: 79999,
+        "delivery-charge": "free",
+        rating: {
+          stars: 4.5,
+          reviews: 1200,
+        },
+        fun: function () {
+          console.log("This is a method inside the product2 object.");
+        },
+      };
+      console.log(product2);
+
+      //accessing a property with a hyphen using bracket notation
+      console.log("Accessing Property with Bracket Notation:");
+      // This will cause an error
+      // console.log(product2.delivery - charge);
+      console.log(product2["delivery-charge"]);
+
+      // Accessing nested object properties
+      console.log("Accessing Nested Object Properties:");
+      console.log(product2.rating.stars);
+      console.log(product2.rating.reviews);
+
+      // Calling the method inside an object
+      console.log("Calling the Method inside an object:");
+      product2.fun();
+
+      //Converting JS Object to JSON String
+      console.log("Converting JS Object to JSON String:");
+      let jsonString = JSON.stringify(product2);
+      console.log(jsonString);
+      console.log(typeof jsonString);
+
+      // Parsing JSON String back to JS Object
+      console.log("Parsing JSON String back to JS Object:");
+      let parsedObject = JSON.parse(jsonString);
+      console.log(parsedObject);
+
+      //Object References
+      console.log("Object References:");
+      const product3 = product2;
+      product3.name = "OnePlus 9";
+      console.log(product2.name);
+      console.log(product3.name);
+
+      // product2 and product3 refer to the same object
+      console.log(product2 === product3); // true
+
+      //Auto-Boxing
+      console.log("Auto-Boxing:");
+      const num = 42;
+      const boxedNum = new Number(num);
+      console.log(boxedNum);
+      console.log(typeof boxedNum);
+
+      console.log("Hello".length);
+      console.log("Hello".toUpperCase());
+
+      //Destructuring Object
+      console.log("Destructuring Objects:");
+      const { name, price } = product2;
+      console.log(name);
+      console.log(price);
+      console.log(product2);
+
+      // Creating a new object using the destructured variables
+      const product4 = {
+        name,
+        price,
+      };
+      console.log(product4);
+
+      //Shorthand Method
+      console.log("Shorthand Method:");
+      const product5 = {
+        name,
+        price,
+        displayInfo() {
+          console.log(`Product Name: ${this.name}`);
+          console.log(`Product Price: ${this.price}`);
+        },
+      };
+      console.log(product5);
+      console.log(product5.displayInfo());
+    </script>
+  </body>
+</html>
