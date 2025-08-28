@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Functions</title>
+    <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/normalize.css" />
+  </head>
+  <body>
+    <button class="js-greeting-button btn btn--primary">Greet</button>
+    <!--JavaScript-->
+    <script>
+      function greeting() {
+        console.log("Hello NK");
+      }
+      greeting();
+
+      //Functions are Values
+      console.log("Functions are values");
+      const function1 = function greeting() {
+        console.log("Hello2 NK");
+      };
+      console.log(function1);
+      console.log(typeof function1);
+      function1();
+
+      //Anonymous Function
+      console.log("Anonymous Function");
+      const function2 = function () {
+        console.log("Hello3 NK");
+      };
+      function2();
+
+      //Hoisting
+      console.log("Hoisting");
+      greeting();
+      function greeting() {
+        console.log("Hello4 NK");
+      }
+
+      //Method
+      console.log("Method");
+      const obj = {
+        greeting: function () {
+          console.log("Hello5 NK");
+        },
+      };
+      obj.greeting();
+
+      //Calling a Function in another Function
+      function outerFunction() {
+        console.log("Outer Function");
+        innerFunction();
+        function innerFunction() {
+          console.log("Inner Function");
+        }
+      }
+      outerFunction();
+
+      //Callback Function
+      console.log("Callback Function");
+      setTimeout(function () {
+        console.log("Hello after 3 seconds");
+      }, 3000);
+
+      //Asynchronous code
+      console.log("Asynchronous code");
+      setTimeout(function () {
+        console.log("Hello after 3 seconds");
+      }, 3000);
+      console.log("This message is shown first");
+
+      //Repeatedly calls a function every 2 seconds
+      setInterval(function () {
+        console.log("Hello every 2 seconds");
+      }, 2000);
+      console.log("This message is shown first2");
+
+      //forEach
+      [1, 2, 3].forEach(function (value, index) {
+        console.log(index);
+        console.log(value);
+      });
+
+      //Continue
+      [1, 2, 3].forEach(function (value, index) {
+        if (value === 2) {
+          console.log("Found 2, continuing to the next iteration");
+          return; // This works like 'continue'
+        }
+        console.log(value);
+      });
+
+      //Arrow Functions
+      const arrowFunction = () => {
+        console.log("Hello NK");
+      };
+      arrowFunction();
+
+      //Arrow functions with parameters
+      const arrowFunctionWithParams = (name) => {
+        console.log(`Hello ${name}`);
+      };
+      arrowFunctionWithParams("NK");
+
+      //Differences between Arrow functions and regular functions
+      const regularFunction = function (name) {
+        console.log(`Hello ${name}`);
+      };
+      regularFunction("NK");
+
+      const oneParam = (param) => {
+        console.log(param + 1);
+      };
+      oneParam(1);
+
+      const oneLine = () => 1 + 2;
+      console.log(oneLine());
+
+      // arrow function inside object
+      const arr4 = {
+        method: () => {},
+        property: "value",
+        method() {},
+      };
+
+      // EventListeners
+      function eventListener() {
+        console.log("Button Clicked");
+      }
+
+      const button = document.querySelector(".js-greeting-button");
+      button.addEventListener("click", eventListener);
+
+      button.removeEventListener("click", eventListener);
+
+      button.addEventListener("click", () => {
+        console.log("Button Clicked Again");
+      });
+
+      //Filters
+      console.log("Filters");
+      console.log(
+        [1, 2, 3, -4, 5, -6, -7, -8].filter(function (value) {
+          return value > 0;
+        })
+      );
+
+      //Map method
+      console.log("Map method");
+      console.log(
+        [1, 2, 3, 4, 5].map(function (value) {
+          return value * 2;
+        })
+      );
+
+      //shortcut of arrow function
+      console.log([1, 2, 3, 4].map((value) => value * 2));
+    </script>
+  </body>
+</html>

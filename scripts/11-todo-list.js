@@ -1,4 +1,19 @@
 const tasks = [];
+
+//EventListners
+document.querySelector(".js-add-task").addEventListener("click", addTask);
+document
+  .querySelector(".js-task-input")
+  .addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      addTask();
+    }
+  });
+document.querySelector(".js-remove-task").addEventListener("click", (event) => {
+  const taskIndex = event.target.dataset.index;
+  removeTask(taskIndex);
+});
+
 function addTask() {
   const taskInput = document.querySelector(".js-task-input");
   const taskDate = document.querySelector(".js-task-date");
@@ -20,7 +35,7 @@ function renderTasks() {
       <div class="input-group task-group">
         <input type="text" class="input block__input" value="${task.name}" readonly />
         <input type="date" class="input input__date" value="${task.dueDate}" readonly />
-        <button class="btn btn--accent" onclick="removeTask(${index})">Remove</button>
+        <button class="btn btn--accent js-remove-task" data-index="${index}">Remove</button>
       </div>`;
   });
   taskList.innerHTML = todoListHtml;
