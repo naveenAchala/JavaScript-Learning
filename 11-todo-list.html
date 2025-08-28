@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="styles/normalize.css" />
+    <link rel="stylesheet" href="styles/todoList.css" />
+  </head>
+  <body>
+    <div class="block container">
+      <h2 class="block__header">Todo List</h2>
+      <div class="input-group">
+        <input
+          type="text"
+          class="input block__input js-task-input"
+          placeholder="Add a new task..."
+        />
+        <input type="date" class="input input__date js-task-date" />
+        <button class="btn btn--secondary" onclick="addTask()">Add</button>
+      </div>
+      <div class="task-list">
+        <div class="task-list__items">
+          <!-- Task items will be added here dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!--JavaScript-->
+    <script src="scripts/11-todo-list.js"></script>
+  </body>
+</html>
